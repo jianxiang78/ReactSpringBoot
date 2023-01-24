@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.auto17.mapper.AppUserMapper">
+
+    <resultMap type="AppUser" id="AppUserResult">
+        <result property="userNo"    column="user_no"    />
+        <result property="userLoginName"    column="user_login_name"    />
+        <result property="userPasswd"    column="user_passwd"    />
+        <result property="userTrueName"    column="user_true_name"    />
+        <result property="userRole"    column="user_role"    />
+    </resultMap>
+
+    <sql id="selectAppUserVo">
+        select user_no, user_login_name, user_passwd, user_true_name, user_role from app_user
+    </sql>
+
+    <select id="selectAppUserList" parameterType="AppUser" resultMap="AppUserResult">
+        <include refid="selectAppUserVo"/>
+        <where>
+            <if test="userLoginName != null  and userLoginName != ''"> and user_login_name like concat('%', #{userLoginName}, '%')</if>
+            <if test="userPasswd != null  and userPasswd != ''"> and user_passwd = #{userPasswd}</if>
+            <if test="userTrueName != null  and userTrueName != ''"> and user_true_name like concat('%', #{userTrueName}, '%')</if>
+            <if test="userRole != null  and userRole != ''"> and user_role = #{userRole}</if>
+        </where>
+    </select>
+
+
+    <select id="selectAppUserById" parameterType="Long" resultMap="AppUserResult">
+        <include refid="selectAppUserVo"/>
+        where user_no = #{userNo}
+    </select>
+
+    <insert id="insertAppUser" parameterType="AppUser" useGeneratedKeys="true" keyProperty="userNo">
+        insert into app_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userLoginName != null">user_login_name,</if>
+            <if test="userPasswd != null">user_passwd,</if>
+            <if test="userTrueName != null">user_true_name,</if>
+            <if test="userRole != null">user_role,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userLoginName != null">#{userLoginName},</if>
+            <if test="userPasswd != null">#{userPasswd},</if>
+            <if test="userTrueName != null">#{userTrueName},</if>
+            <if test="userRole != null">#{userRole},</if>
+         </trim>
+    </insert>
+
+    <update id="updateAppUser" parameterType="AppUser">
+        update app_user
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userLoginName != null">user_login_name = #{userLoginName},</if>
+            <if test="userPasswd != null">user_passwd = #{userPasswd},</if>
+            <if test="userTrueName != null">user_true_name = #{userTrueName},</if>
+            <if test="userRole != null">user_role = #{userRole},</if>
+        </trim>
+        where user_no = #{userNo}
+    </update>
+
+    <delete id="deleteAppUserById" parameterType="Long">
+        delete from app_user where user_no = #{userNo}
+    </delete>
+
+    <delete id="deleteAppUserByIds" parameterType="String">
+        delete from app_user where user_no in
+        <foreach item="userNo" collection="array" open="(" separator="," close=")">
+            #{userNo}
+        </foreach>
+    </delete>
+
+</mapper>
