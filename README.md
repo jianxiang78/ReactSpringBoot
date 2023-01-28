@@ -1,7 +1,11 @@
 # A Simple Example Of React & SpringBoot
 
-This project was built with React & SpringBoot. The project uses a development framework that separates the front-end and back-end, uses different project file paths, and physically isolates the source code of the front-end and back-end. The front-end uses React, the back-end uses SpringBoot microservice, and the database uses MySQL. The front-end and back-end are separate source code projects. The front-end directory is "ReactSpringBootClient", the back-end directory is "ReactSpringBootServer", and the database creation script is in the directory "MySQL".\
+This project was built with React & SpringBoot. \\
+
+The project uses a development framework that separates the front-end and back-end, uses different project file paths, and physically isolates the source code of the front-end and back-end. The front-end uses React, the back-end uses SpringBoot microservice, and the database uses MySQL. The front-end and back-end are separate source code projects. The front-end directory is "ReactSpringBootClient", the back-end directory is "ReactSpringBootServer", and the database creation script is in the directory "MySQL".\
+
 The backend SpringBoot microservice uses port 8080 by default, which can be modified according to your own situation. The file location of the front-end configuration server is "/ReactSpringBoot/ReactSpringBootClient/src/tool/http-common.js", and the variable name is "baseURL".\
+
 The front-end UI uses the free template of CoreUI. This project can be used as an example for beginners to learn, and also as an initial project for WEB system development. The project uses the MIT protocol without any restrictions and can be used commercially.\
 WEB system default login user name: admin; Default password: 123456.
 
@@ -18,7 +22,7 @@ Database: MySQL 5.7+
 
 # React和SpringBoot的简单示例
 本项目使用React和SpringBoot微服务实现一个简单、完整的WEB系统。项目采用前、后端分离的开发框架，使用不同的工程文件路径，前、后端的源代码物理隔绝。前端使用React，后端使用SpringBoot微服务，数据库使用MySQL。前、后端是分别单独的工程文件。前端目录是ReactSpringBootClient，后端目录是ReactSpringBootServer，建库脚本在目录MySQL中。\
-后端SpringBoot微服务默认使用8080端口，可根据自己情况进行修改。前端配置服务端的文件位置“/ReactSpringBoot/ReactSpringBootClient/src/tool/http-common.js”，变量名称“baseURL”。\
+后端SpringBoot微服务默认使用8080端口，可根据自己情况进行修改。前端配置服务端的文件位置“/ReactSpringBoot/ReactSpringBootClient/src/tool/http-common.js”，变量名称“baseURL”。\\
 前端UI使用CoreUI的免费模板。CoreUI不太符合国人的审美观，可以自行替换。本项目可作为初学者的入门学习例子，也可作为WEB系统开发的初始工程。采用MIT协议，没有任何限制，可以商用。\
 WEB系统默认登录用户名：admin；默认密码：123456。
 
